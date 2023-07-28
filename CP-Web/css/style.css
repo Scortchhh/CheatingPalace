@@ -1,0 +1,62 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+a{
+    color: black;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #ffc107;
+    color: #fff;
+    transition: all 0.3s;
+    margin-top: 55px;
+}
+
+ul{
+    margin-left: 10px;
+}
+table{
+    float: left;
+    display: none;
+}
+
+.scriptsTable {
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin-left: 46%;
+    float: unset;
+}
+
+.progress {
+    position: relative;
+    height: 4px;
+    display: block;
+    width: 100%;
+    background-color: #acece6;
+    border-radius: 2px;
+    margin: 0.5rem 0 1rem 0;
+    overflow: hidden;
+  }
+  
+  .progress .determinate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #26a69a;
+    -webkit-transition: width .3s linear;
+    transition: width .3s linear;
+  }
+
+  .cardfix{
+      padding-bottom: 0px;
+  }
