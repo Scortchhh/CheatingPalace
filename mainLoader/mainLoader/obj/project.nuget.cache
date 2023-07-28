@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "U2cMPjfJBTRN+kC2hizCUMTH49PXfuQzJZnefczY/6EOhx1N2P1EwlxZ8MluRCkwtoFUXXZcEWP7lTXznCx+zg==",
+  "success": true,
+  "projectFilePath": "E:\\Coding\\CP\\mainLoader\\mainLoader\\mainLoader.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jamie\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\cryptsharpofficial\\2.1.0\\cryptsharpofficial.2.1.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\system.runtime.windowsruntime\\4.7.0\\system.runtime.windowsruntime.4.7.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.7.0\\system.runtime.windowsruntime.ui.xaml.4.7.0.nupkg.sha512",
+    "C:\\Users\\jamie\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

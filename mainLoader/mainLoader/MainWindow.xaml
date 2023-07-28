@@ -1,0 +1,156 @@
+﻿<Controls:MetroWindow x:Class="mainLoader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+
+        mc:Ignorable="d" Height="500" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="TextBoxWithPlaceholder" TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="AllowDrop" Value="true" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+                                <TextBlock x:Name="PART_Placeholder" Foreground="Gray" FontStyle="Italic" IsHitTestVisible="False" Margin="{TemplateBinding Padding}" Text="{TemplateBinding Tag}" VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PART_Placeholder" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter TargetName="PART_Placeholder" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="PART_Placeholder" Property="Visibility" Value="Collapsed" />
+                                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <VirtualizingStackPanel>
+        <Grid Background="White" Height="40">
+            <VirtualizingStackPanel Name="navbar2" Visibility="Hidden" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="MY ACCOUNT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" Click="Button_Account"></Button>
+            </VirtualizingStackPanel>
+            <VirtualizingStackPanel Name="navbar" Visibility="Hidden" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="HOME" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" Click="Button_Home"></Button>
+                <Button Content="LOL" x:Name="loltab" Background="{x:Null}" Visibility="Hidden" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" Click="Button_LOL"></Button>
+                <Button Content="CS:GO" x:Name="csgotab" Background="{x:Null}" Visibility="Hidden" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" Click="Button_CSGO"></Button>
+            </VirtualizingStackPanel>
+        </Grid>
+        <Canvas>
+            <Canvas Name="Login" Visibility="Hidden">
+                <TextBox x:Name="username" FontSize="12" ToolTip="Username here" Text="" Canvas.Top="97" Canvas.Left="298" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock x:Name="usernameHeader" Text="Username:" Height="35" Width="auto" FontSize="14" Canvas.Left="370" Canvas.Top="72" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <PasswordBox x:Name="password" FontSize="12" ToolTip="Password here" Canvas.Top="164" Canvas.Left="298" Width="210" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock x:Name="passwordHeader" Text="Password:" Height="35" Width="auto" FontSize="14" Canvas.Left="370" Canvas.Top="139" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <TextBox x:Name="globalPassword" FontSize="12" ToolTip="Global password here" Text="" Canvas.Top="230" Canvas.Left="295" Width="210" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
+                <Button x:Name="loginBtn" Content="Login" Width="86" Canvas.Left="360" Canvas.Top="274" Height="34" Click="LoginBtn_OnClick" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+                <TextBlock x:Name="passwordHeader_Copy" Text="Global password:" Height="35" Width="auto" FontSize="14" Canvas.Left="350" Canvas.Top="208" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            </Canvas>
+            <Canvas Name="Register" Visibility="Hidden">
+                <TextBox x:Name="registerUsername" FontSize="12" ToolTip="Username here" Text="" Canvas.Top="97" Canvas.Left="298" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock x:Name="registerUsernameHeadeer" Text="Username:" Height="35" Width="auto" FontSize="14" Canvas.Left="370" Canvas.Top="72" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <PasswordBox x:Name="registerPassword" FontSize="12" ToolTip="Password here" Canvas.Top="164" Canvas.Left="298" Width="210" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock x:Name="registerPasswordHeader" Text="Password:" Height="35" Width="auto" FontSize="14" Canvas.Left="370" Canvas.Top="139" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <TextBlock x:Name="keyHeader" Text="Key:" Height="35" Width="auto" FontSize="14" Canvas.Left="390" Canvas.Top="208" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="key" FontSize="12" ToolTip="Global password here" Text="" Canvas.Top="230" Canvas.Left="295" Width="210" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
+                <Button x:Name="registerBtn" Content="Sign up" Width="86" Canvas.Left="360" Canvas.Top="274" Height="34" Click="registerBtn_Click" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+                <Button x:Name="alreadyMember" Content="Already registered?" Width="206" Canvas.Left="300" Canvas.Top="329" Height="34" Click="alreadyMember_Click" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+            </Canvas>
+            <Canvas Name="setPasswordTab" Visibility="Hidden">
+                <PasswordBox PasswordChar="*" x:Name="setPassword" FontSize="12" ToolTip="Username here" Canvas.Top="145" Canvas.Left="299" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="newPassword" Text="Enter new password below:" Height="35" Width="auto" FontSize="14" Canvas.Left="320" Canvas.Top="119" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Button x:Name="setPasswordBtn" Content="Set Password" Width="86" Canvas.Left="361" Canvas.Top="188" Height="34" Click="SetPasswordBtn_OnClick" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+            </Canvas>
+            <TextBlock x:Name="name" Height="35" Width="auto" FontSize="14" Canvas.Left="22" Canvas.Top="15" />
+            <Canvas Visibility="Hidden" x:Name="Home" Background="{StaticResource bg}" Height="430" Width="800" Canvas.Left="-1">
+                <TextBlock x:Name="nameHome" Height="35" Width="auto" FontSize="14" Canvas.Left="22" Canvas.Top="15" />
+            </Canvas>
+            <Canvas x:Name="LOL" Visibility="Hidden">
+                <TextBox x:Name="findScript" FontSize="12" Canvas.Top="37" Canvas.Left="335" Width="185" TextChanged="FilterScripts" Style="{StaticResource TextBoxWithPlaceholder}" Tag="Enter script name" />
+                <TextBlock Text="" FontSize="16" Canvas.Left="320" Canvas.Top="34"/>
+                <TextBlock Text="Modules" FontSize="24" FontWeight="Bold" Canvas.Left="11" Canvas.Top="-3" Height="37"></TextBlock>
+                <Button x:Name="btnSelectFile" Content="Import script" Grid.Row="0" Click="BtnSelectFile_OnClick" Canvas.Left="623" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+                <Button x:Name="loadbtn" Content="Load Cheat" Click="StartCheat" Width="150" Canvas.Left="623" Canvas.Top="35"/>
+                <Button x:Name="coreBtn" Content="Core" Width="40" Canvas.Left="10" Canvas.Top="35" Height="2" Click="CoreBtn_Click"></Button>
+                <Button x:Name="championsBtn" Content="Champions" Width="75" Canvas.Left="55" Canvas.Top="35" Height="2" Click="ChampionsBtn_Click"></Button>
+                <Button x:Name="favoritesBtn" Content="Favorites" Width="70" Canvas.Left="135" Canvas.Top="35" Height="2" Click="FavoriteBtn_Click"/>
+                <Button x:Name="communityBtn" Content="Community" Width="75" Canvas.Left="210"  Canvas.Top="35" Height="2" Click="CommunityBtn_Click"></Button>
+                <Button x:Name="vipBtn" Content="VIP" Width="40" Canvas.Left="290"  Canvas.Top="35" Height="2" Click="VipBtn_Click"></Button>
+                <Grid Width="753" Height="350" Canvas.Left="9" Canvas.Top="65">
+                    <Border Background="White" BorderThickness="1">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" Opacity="0.4"/>
+                        </Border.Effect>
+                    </Border>
+                </Grid>
+                <ScrollViewer x:Name="parentScrollViewer" Canvas.Left="9" Canvas.Top="65" Height="340" VerticalScrollBarVisibility="Auto">
+                    <Canvas Width="753" Height="1900" Canvas.Left="22" Canvas.Top="90" Visibility="Visible" >
+                        <Button x:Name="refreshBtn" Width="100" Canvas.Left="307" Canvas.Top="35" Visibility="Hidden" Click="RefreshScriptLists"/>
+                        <Canvas x:Name="coreSelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Visible">
+
+                        </Canvas>
+                        <Canvas x:Name="utilitySelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                        <Canvas x:Name="championsSelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                        <Canvas x:Name="favoriteSelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                        <Canvas x:Name="communitySelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                        <Canvas x:Name="filteredSelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                        <Canvas x:Name="vipSelection" Width="753" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden">
+                        </Canvas>
+                    </Canvas>
+                </ScrollViewer>
+            </Canvas>
+            <Canvas x:Name="CSGO" Visibility="Hidden">
+                <TextBlock x:Name="patchVercsgo" Height="40" Width="auto" FontSize="14" Canvas.Left="634" Canvas.Top="327"/>
+                <Label Width="206" Height="45" Canvas.Left="22" Canvas.Top="64" FontSize="24" Content="Changelog" FontWeight="Bold"/>
+                <Button x:Name="loadbtncsgo" Content="Load Cheat" Click="LoadCsgo_Cheat" Width="150" Canvas.Left="634" Canvas.Top="358"/>
+                <Grid Width="753" Height="200" Canvas.Left="22" Canvas.Top="109">
+                    <Border Background="White" BorderThickness="1">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" Opacity="0.4"/>
+                        </Border.Effect>
+                    </Border>
+                </Grid>
+                <TextBox IsReadOnly="True" x:Name="changelogFieldcsgo" Background="Transparent" BorderThickness="0" Width="753" Height="200" Canvas.Left="22" Canvas.Top="109"/>
+            </Canvas>
+            <Canvas x:Name="Account" Visibility="Hidden">
+                <TextBlock Text="User Account Management" FontSize="18"  Canvas.Left="99" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <CheckBox x:Name="autoLoadCheat" Content="Auto Load Cheat" Canvas.Left="395" Canvas.Top="39" Checked="LoadMenuSettings" Unchecked="LoadMenuSettings" HorizontalAlignment="Left" VerticalAlignment="Center" Width="192"/>
+                <ListBox Height="300" Width="300" Canvas.Left="55" Canvas.Top="39" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Label Height="33" Background="Transparent" Content="Username: " HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+                    <ListBoxItem Height="35" x:Name="user" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Height="33" Content="Subscription Expire Date: " HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+                    <ListBoxItem Height="35" x:Name="expireDate" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </ListBox>
+                <TextBlock Text="Settings" FontSize="18"  Canvas.Left="395" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="109"/>
+                <CheckBox x:Name="autoCheckCoreScriptsBtn" Content="Auto Check Core Scripts" Canvas.Left="395" Canvas.Top="59" Checked="LoadMenuSettings" Unchecked="LoadMenuSettings" HorizontalAlignment="Left" VerticalAlignment="Center" Width="258"/>
+                <TextBox x:Name="lolPath" FontSize="12" ToolTip="LOL path here example: F:\Games\Riot Games\League of Legends\Config" Text="C:\Riot Games\League of Legends\Config" Canvas.Top="82" Canvas.Left="395" Width="398" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button x:Name="loadConfig" Content="Set Best Config" Canvas.Left="395" Canvas.Top="113" Click="loadConfig_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Width="161"/>
+                <Button x:Name="SetZoomHack" Content="Enable ZoomHack" Canvas.Left="395" Canvas.Top="145" Click="SetZoomHack_OnClick"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="161"/>
+            </Canvas>
+        </Canvas>
+    </VirtualizingStackPanel>
+</Controls:MetroWindow>

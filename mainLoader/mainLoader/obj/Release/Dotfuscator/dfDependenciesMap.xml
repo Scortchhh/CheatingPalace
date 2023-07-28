@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependency-mappings>
+  <entry>
+    <new>A:\C#\mainLoader\mainLoader\obj\Release\Dotfuscator\dfout\mainLoader.exe</new>
+    <old>A:\C#\mainLoader\mainLoader\obj\Release\mainLoader.exe</old>
+  </entry>
+  <entry>
+    <new>A:\C#\mainLoader\mainLoader\obj\Release\Dotfuscator\dfout\mainLoader.pdb</new>
+    <old>A:\C#\mainLoader\mainLoader\obj\Release\mainLoader.pdb</old>
+  </entry>
+</dependency-mappings>
