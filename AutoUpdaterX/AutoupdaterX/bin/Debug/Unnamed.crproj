@@ -1,0 +1,13 @@
+<project outputDir="F:\Coding\CP\AutoupdaterX\AutoupdaterX\bin\Debug\Confused" baseDir="F:\Coding\CP\AutoupdaterX\AutoupdaterX\bin\Debug" xmlns="http://confuser.codeplex.com">
+  <packer id="compressor" />
+  <module path="AutoupdaterX.exe">
+    <rule pattern="true" preset="maximum">
+      <protection id="anti ildasm" />
+      <protection id="anti tamper" />
+      <protection id="constants" />
+      <protection id="ctrl flow" />
+      <protection id="anti dump" />
+      <protection id="anti debug" />
+    </rule>
+  </module>
+</project>
